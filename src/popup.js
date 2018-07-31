@@ -11,7 +11,7 @@ export function getPopupContent(obj) {
 
     const htmlStatus = obj.isActive
         ? `<div class="station-info-active">active</div>`
-        : `<div class="station-info-defective">defective</div>`
+        : `<div class="station-info-defective">defective</div>`;
 
     let content = `
         <div class="station-info">
