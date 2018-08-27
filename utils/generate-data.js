@@ -1,4 +1,6 @@
 const faker = require('faker');
+const CHART_TOTAL_COUNT = 14;
+const DATA_TOTAL_COUNT = 721;
 
 function rand() {
   const rnd = Math.random() - 0.5;
@@ -6,11 +8,10 @@ function rand() {
 }
 
 function generateChartData(isActive) {
-  const TOTAL_COUNT = 14;
   const emptyCount = isActive ? 0 : Math.floor(Math.random() * 5);
-  const count = TOTAL_COUNT - emptyCount;
+  const count = CHART_TOTAL_COUNT - emptyCount;
 
-  return new Array(TOTAL_COUNT)
+  return new Array(CHART_TOTAL_COUNT)
     .fill(true)
     .map((el, i) => (i < count ? Math.floor(Math.random() * 7) + 2 : 0));
 }
@@ -18,7 +19,7 @@ function generateChartData(isActive) {
 exports.generateData = function() {
   const data = [];
 
-  for (let i = 0; i < 721; i++) {
+  for (let i = 0; i < DATA_TOTAL_COUNT; i++) {
     data.push({
       serialNumber: faker.address.zipCode(),
       isActive: Math.random() > 0.03,
@@ -28,7 +29,7 @@ exports.generateData = function() {
   }
 
   return data;
-};
+}
 
 exports.generateDetails = function({ isActive }) {
   const connections = isActive ? Math.floor(Math.random() * 7) + 4 : 0;
@@ -37,4 +38,4 @@ exports.generateDetails = function({ isActive }) {
     connections: connections,
     chart: generateChartData(isActive).concat(connections)
   };
-};
+}

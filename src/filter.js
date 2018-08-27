@@ -1,3 +1,5 @@
+const LIST_BOX_TITLE = 'Filter by state';
+
 export function createFilterControl(ymaps) {
   const items = [
     { title: 'Active', value: 'active' },
@@ -11,7 +13,7 @@ export function createFilterControl(ymaps) {
   );
 
   const listBoxControl = new ymaps.control.ListBox({
-    data: { content: 'Filter by state', title: 'Filter by state' },
+    data: { content: LIST_BOX_TITLE, title: LIST_BOX_TITLE },
     items: items,
     state: {
       filters: items.reduce(function(filters, item) {

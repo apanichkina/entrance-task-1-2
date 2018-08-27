@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js';
+import {Chart} from 'chart.js';
 
 function getColor(isActive, alpha = 1) {
   return isActive
@@ -8,10 +8,12 @@ function getColor(isActive, alpha = 1) {
 
 function getLabel(el, i, data) {
   const x = new Date();
+
   x.setHours(x.getHours() - data.length + i);
   x.setMinutes(0);
   x.setSeconds(0);
   x.setMilliseconds(0);
+
   return x.toString();
 }
 
@@ -29,19 +31,19 @@ export function createChart(container, data, isActive) {
         {
           data: data,
           borderWidth: 1,
-            borderColor: borderColor,
-              backgroundColor: backgroundColor
+          borderColor: borderColor,
+          backgroundColor: backgroundColor
         }
       ]
     },
     options: {
-        legend: { 
-            display: false
-        },
-        scales: {
-            xAxes: [{ ticks: { display: false } }],
-            yAxes: [{ ticks: { beginAtZero: true } }]
-        }
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{ticks: {display: false}}],
+        yAxes: [{ticks: {beginAtZero: true}}]
+      }
     }
   });
 

@@ -13,7 +13,7 @@ export function getPopupContent(obj) {
         ? `<div class="station-info-active">active</div>`
         : `<div class="station-info-defective">defective</div>`;
 
-    let content = `
+    const content = `
         <div class="station-info">
             <div class="station-info-label">base stations</div>
             <div class="station-info-title">${obj.serialNumber}</div>
